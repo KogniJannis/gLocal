@@ -132,7 +132,7 @@ def parseargs():
         type=int,
         help="Maximum number of epochs to perform finetuning",
         default=100,
-        choices=[50, 100, 150, 200, 250, 300],
+        choices=[2, 50, 100, 150, 200, 250, 300],
     )
     aa(
         "--burnin",
@@ -555,13 +555,14 @@ if __name__ == "__main__":
     features = load_features(args.probing_root)
     model_features = features[args.source][args.model][args.module]
 
-    eta, lmbda, alpha, tau, contrastive_batch_size = get_combination(
-        etas=args.learning_rates,
-        lambdas=args.lmbdas,
-        alphas=args.alphas,
-        taus=args.taus,
-        contrastive_batch_sizes=args.contrastive_batch_sizes,
-    )
+    eta, lmbda, alpha, tau, contrastive_batch_size = 0.001, 0.001, 0.1 , 1.0, 64
+    # eta, lmbda, alpha, tau, contrastive_batch_size = get_combination(
+    #     etas=args.learning_rates,
+    #     lambdas=args.lmbdas,
+    #     alphas=args.alphas,
+    #     taus=args.taus,
+    #     contrastive_batch_sizes=args.contrastive_batch_sizes,
+    # )
 
     out_path = os.path.join(
         args.probing_root,
