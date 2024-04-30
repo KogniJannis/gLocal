@@ -1,5 +1,7 @@
 .idea
 resources
+__pycache__
+lightning_logs
 *.txt
 *.npy
 *.png
@@ -9,3 +11,6 @@ resources
 *.ipynb_checkpoints/
 *.html
 *.ipynb
+*.JPEG
+*.pt
+*.hdf5
