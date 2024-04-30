@@ -14,7 +14,7 @@ Pillow
 scipy
 seaborn
 tensorflow
-thingsvision==2.4.1
+git+https://github.com/KogniJannis/thingsvision.git@add_models
 torchvision==0.14.1
 torch==1.13.*
 tqdm
