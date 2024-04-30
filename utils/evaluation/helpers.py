@@ -7,6 +7,7 @@ import json
 import os
 import pickle
 from typing import Any, Dict, List, Tuple, Union
+from tqdm import tqdm
 
 import numpy as np
 import pandas as pd
@@ -82,11 +83,17 @@ def load_embeddings(
     return embeddings
 
 
+print_flag_dots = True
 def compute_dots(triplet: Tensor, pairs: List[Tuple[int]]) -> Tensor:
+    global print_flag_dots
+    if print_flag_dots:
+        print(triplet.device)
+        print_flag_dots = False
     return torch.tensor([triplet[i] @ triplet[j] for i, j in pairs])
 
-
+print_flag_distances= True
 def compute_distances(triplet: Tensor, pairs: List[Tuple[int]], dist: str) -> Tensor:
+    global print_flag_distances 
     if dist == "cosine":
         dist_fun = lambda u, v: 1 - F.cosine_similarity(u, v, dim=0)
     elif dist == "euclidean":
@@ -97,11 +104,14 @@ def compute_distances(triplet: Tensor, pairs: List[Tuple[int]], dist: str) -> Te
         raise Exception(
             "\nDistance function other than Cosine or Euclidean distance is not yet implemented\n"
         )
+    if print_flag_distances:
+        print(triplet.device)
+        print_flag_distances = False
     distances = torch.tensor([dist_fun(triplet[i], triplet[j]) for i, j in pairs])
     return distances
 
-
-def get_predictions(
+'''
+def step_predictions(
     features: Array, triplets: Array, temperature: float = 1.0, dist: str = "cosine"
 ) -> Tuple[Tensor, Tensor]:
     """Get the odd-one-out choices for a given model."""
@@ -111,7 +121,13 @@ def get_predictions(
     choices = torch.zeros(triplets.shape[0])
     probas = torch.zeros(triplets.shape[0], len(indices))
     print(f"\nShape of embeddings {features.shape}\n")
-    for s, (i, j, k) in enumerate(triplets):
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(f"current device is {device}")
+    features = features.to(device)
+    choices = choices.to(device)
+    probas = probas.to(device)
+    temperature = torch.tensor(temperature, device=device)
+    for s, (i, j, k) in enumerate(tqdm(triplets, mininterval=10)):
         triplet = torch.stack([features[i], features[j], features[k]])
         distances = compute_distances(triplet, pairs, dist)
         dots = compute_dots(triplet, pairs)
@@ -122,9 +138,53 @@ def get_predictions(
             most_sim_pair = pairs[torch.argmin(distances).item()]
             ooo_idx = indices.difference(most_sim_pair).pop()
             choices[s] += ooo_idx
+        dots.to(device)
+        probas[s] += F.softmax(dots * temperature, dim=0)
+        choices.to('cpu')
+        probas.to('cpu')
+    return choices, probas
+'''
+def get_predictions(
+    features: Array, triplets: Array, temperature: float = 1.0, dist: str = "cosine"
+) -> Tuple[Tensor, Tensor]:
+    assert dist == "cosine", "only cosine implemented for now"
+    """Get the odd-one-out choices for a given model."""
+    indices = {0, 1, 2}
+    pairs = list(itertools.combinations(indices, r=2))
+    features = torch.from_numpy(features)
+    choices = torch.zeros(triplets.shape[0])
+    probas = torch.zeros(triplets.shape[0], len(indices))
+    print(f"\nShape of embeddings {features.shape}\n")
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(f"current device is {device}")
+    features = features.to(device)
+    dot_matrix = torch.mm(features, features.t())
+    normalized_features = F.normalize(features, p=2, dim=1)
+    cosine_matrix = 1 - torch.mm(normalized_features, normalized_features.t())
+    print(f"shape of dot matrix {dot_matrix.shape}")
+    print(f"shape of cosine matrix {cosine_matrix.shape}")
+    assert cosine_matrix.shape == (1854, 1854)
+    dot_matrix = dot_matrix.to('cpu')
+    cosine_matrix = cosine_matrix.to('cpu')
+    print("calculated matrices")
+    for s, (i, j, k) in enumerate(tqdm(triplets, mininterval=10)):
+        target_ids = [(i, j), (i, k), (j, k)]
+        distances =  cosine_matrix[[idx[0] for idx in target_ids], [idx[1] for idx in target_ids]]
+        #print(distances)
+        #triplet = torch.stack([features[i], features[j], features[k]])
+        #distances = compute_distances(triplet, pairs, dist)
+        #print(distances)
+        dots = dot_matrix[[idx[0] for idx in target_ids], [idx[1] for idx in target_ids]]
+        if torch.unique(distances).shape[0] == 1:
+            # If all distances are the same, we set the index to -1 (i.e., signifies an incorrect choice)
+            choices[s] += -1
+        else:
+            most_sim_pair = pairs[torch.argmin(distances).item()]
+            ooo_idx = indices.difference(most_sim_pair).pop()
+            choices[s] += ooo_idx
+        
         probas[s] += F.softmax(dots * temperature, dim=0)
     return choices, probas
-
 
 def accuracy(choices: List[bool], target: int = 2) -> float:
     """Computes the odd-one-out triplet accuracy."""
