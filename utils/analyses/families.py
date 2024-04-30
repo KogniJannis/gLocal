@@ -38,9 +38,15 @@ class Families:
             "inception_children": "Inception",
             "mobilenet_children": "MobileNet",
             "nasnet_children": "NasNet",
+            "pnasnet_children": "PNasNet",
             "densenet_children": "DenseNet",
             "basic_children": "Basic",
             "align_children": "Align",
+            "convnext_children": "ConvNext",
+            "squeezenet_children": "SqueezeNet",
+            "shufflenet_children": "ShuffleNet",
+            "cornet_children": "CorNet",
+            "bit_children": "BiT",
         }
         return mapping
 
@@ -75,6 +81,10 @@ class Families:
     @property
     def nasnet_children(self):
         return self.search("nasnet")
+
+    @property
+    def pnasnet_children(self):
+        return self.search("pnasnet")
 
     @property
     def clip_children(self):
@@ -169,6 +179,10 @@ class Families:
         return r"^nasnet"
 
     @property
+    def pnasnet(self):
+        return r"^pnasnet"
+
+    @property
     def ssl_contrastive(self):
         return f"({self.simclr})|({self.movcov})"
 
@@ -231,3 +245,44 @@ class Families:
     @property
     def dino(self):
         return "dino"
+
+    #add families for alignment tests
+    @property
+    def convnext(self):
+        return "convnext"
+    
+    @property
+    def shufflenet(self):
+        return "shufflenet"
+
+    @property
+    def squeezenet(self):
+        return "squeezenet"
+    
+    @property
+    def cornet(self):
+        return "cornet"
+
+    @property
+    def bit(self):
+        return "bit"
+
+    @property
+    def convnext_children(self):
+        return self.search("convnext")
+
+    @property
+    def shufflenet_children(self):
+        return self.search("shufflenet")
+
+    @property
+    def squeezenet_children(self):
+        return self.search("squeezenet")
+    
+    @property
+    def cornet_children(self):
+        return self.search("cornet")
+    
+    @property
+    def bit_children(self):
+        return self.search("bit")
