@@ -3,6 +3,8 @@
 
 import argparse
 import os
+import json
+import csv
 import random
 import re
 import warnings
@@ -218,6 +220,7 @@ def evaluate(args) -> None:
     for i, (model_name, source) in tqdm(
         enumerate(zip(model_cfg.names, model_cfg.sources)), desc="Model"
     ):
+        print(f"DEBUG NOTICE: using module {model_cfg.modules[i]}")
         model_features = defaultdict(lambda: defaultdict(dict))
         family_name = (
             "DINO"
@@ -323,6 +326,21 @@ def evaluate(args) -> None:
         failures.to_pickle(os.path.join(out_path, "failures.pkl"))
         utils.evaluation.save_features(features=dict(model_features), out_path=out_path)
 
+        #save results to csv for the final table
+        results_summary = [model_name, source, model_cfg.modules[i], acc]
+        PERFORMANCE_TABLE_COLUMN_HEADERS = ['model_name', 'source', 'layer', 'accuracy']
+        performance_table_path = os.path.join('/content/gLocal-triplet-acc/', 'performances.csv')
+        if not os.path.exists(performance_table_path):
+            print("Warning: Performance table not found. New table started.")
+            with open(performance_table_path, 'w', newline='') as f:
+                writer = csv.writer(f, delimiter=';')
+                writer.writerow(PERFORMANCE_TABLE_COLUMN_HEADERS)
+
+        with open(performance_table_path, 'a+', newline='') as f:
+            writer = csv.writer(f, delimiter=';')
+            writer.writerow(results_summary)
+        
+        print(results_summary)
 
 if __name__ == "__main__":
     # parse arguments and set random seeds
