@@ -124,7 +124,7 @@ def parseargs():
         type=int,
         help="Maximum number of epochs to perform finetuning",
         default=100,
-        choices=[50, 100, 150, 200, 250, 300],
+        choices=[2, 50, 100, 150, 200, 250, 300],
     )
     aa(
         "--burnin",
@@ -150,7 +150,7 @@ def parseargs():
         "--num_processes",
         type=int,
         default=4,
-        choices=[2, 4, 6, 8, 10, 12],
+        choices=[0,1, 2, 4, 6, 8, 10, 12], #added 0,1
         help="Number of devices to use for performing distributed training on CPU",
     )
     aa(
@@ -187,7 +187,8 @@ def create_optimization_config(args) -> Dict[str, Any]:
     optim_cfg["use_bias"] = args.use_bias
     optim_cfg["ckptdir"] = os.path.join(args.log_dir, args.model, args.module)
     optim_cfg["sigma"] = args.sigma
-    optim_cfg["aversarial"] = args.adversarial
+    optim_cfg["adversarial"] = args.adversarial
+    optim_cfg["out_path"] = out_path
     return optim_cfg
 
 
@@ -409,6 +410,8 @@ def run(
     # subtract global mean and normalize by standard deviation of the entire feature matrix
     things_mean = features.mean()
     things_std = features.std()
+    optim_cfg["things_mean"] = things_mean
+    optim_cfg["things_std"] = things_std
     features = (features - things_mean) / things_std
     results = defaultdict(list)
     # convert train and validation triplets into PyTorch datasets
@@ -429,14 +432,14 @@ def run(
     train_batches_imagenet = get_batches(
         dataset=imagenet_train_features,
         batch_size=optim_cfg["contrastive_batch_size"],
-        train=True,
+        train=False,
         num_workers=num_processes,
     )
     val_batches_things = get_batches(
         dataset=val_triplets,
         batch_size=optim_cfg["triplet_batch_size"],
         train=False,
-        num_workers=0,
+        num_workers=num_processes,
     )
     val_batches_imagenet = get_batches(
         dataset=imagenet_val_features,
@@ -454,6 +457,9 @@ def run(
         batches_j=val_batches_imagenet,
         num_workers=num_processes,
     )
+    print("Length of train batches: ", len(train_batches))
+    print("Length of val batches: ", len(val_batches))
+
     glocal_probe = utils.probing.GlocalFeatureProbe(
         features=features,
         optim_cfg=optim_cfg,
@@ -461,14 +467,16 @@ def run(
     trainer = Trainer(
         accelerator=device,
         callbacks=callbacks,
-        strategy="ddp_spawn" if device == "cpu" else None,
-        # strategy="ddp",
+        #strategy="ddp_spawn" if device == "cpu" else None,
+        strategy="ddp",
         max_epochs=optim_cfg["max_epochs"],
         min_epochs=optim_cfg["min_epochs"],
-        devices=num_processes if device == "cpu" else "auto",
+        devices=1, #num_processes if device == "cpu" else "auto"
         enable_progress_bar=True,
         gradient_clip_val=1.0,
         gradient_clip_algorithm="norm",
+        num_sanity_val_steps=0,
+        #use_distributed_sampler=False, I added this and it is not recognized despite docs saying otherwise
     )
     trainer.fit(glocal_probe, train_batches, val_batches)
     test_performances = trainer.test(

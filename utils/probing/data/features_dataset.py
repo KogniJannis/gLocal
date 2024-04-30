@@ -44,4 +44,5 @@ class FeaturesHDF5(torch.utils.data.Dataset):
         # return self.features[idx]
 
     def __len__(self) -> int:
+        print("len of h5py_view: ", self.h5py_view[self.h5py_key].shape)
         return self.h5py_view[self.h5py_key].shape[0] 

@@ -1,7 +1,7 @@
 from typing import Iterator
 
 from torch.utils.data import DataLoader
-
+from torch.utils.data.dataloader import _InfiniteConstantSampler
 
 class ZippedBatchLoader(DataLoader):
     def __init__(
@@ -12,12 +12,14 @@ class ZippedBatchLoader(DataLoader):
         num_workers: int = 0,
         pin_memory: bool = False,
         drop_last: bool = False,
+        **kwargs,
     ) -> None:
         super().__init__(
-            dataset=None,
+            dataset=None, #why?? this causes sampler to be initialized with None and throws len error
             num_workers=num_workers,
             pin_memory=pin_memory,
             drop_last=drop_last,
+            #sampler=_InfiniteConstantSampler()
         )
         self.batches_i = batches_i
         self.batches_j = batches_j
@@ -58,3 +60,6 @@ class ZippedBatchLoader(DataLoader):
         else:
             length = len(self.batches_j)
         return length
+    # def __getitem__(self, index: int) -> zip: # my debug attempt
+    #     print("get item called")
+    #     return self._zip_batches()[index]
