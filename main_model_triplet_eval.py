@@ -45,7 +45,7 @@ def parseargs():
     aa(
         "--module",
         type=str,
-        choices=["logits", "penultimate"],
+        choices=["logits", "penultimate", "final_conv"],
         help="module for which to extract features",
     )
     aa("--overall_source", type=str, default="thingsvision")
