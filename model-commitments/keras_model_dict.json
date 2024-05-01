@@ -1,0 +1,24 @@
+{
+  "NASNetLarge": {
+    "penultimate": 
+    {
+      "module_name": "global_average_pooling2d",
+      "module_dim" : 4032
+    },
+    "logits":
+    {
+      "module_name": "predictions"
+    }
+  },
+  "NASNetMobile": {
+    "penultimate": 
+    {
+      "module_name": "global_average_pooling2d_1",
+      "module_dim" : 1056
+    },
+    "logits":
+    {
+      "module_name": "predictions"
+    }
+  },
+}
