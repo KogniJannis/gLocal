@@ -197,6 +197,11 @@ def load_extractor(
         name = model_name[0]
         variant = "_".join(model_name[1:])
         model_params = dict(variant=variant)
+    elif model_name.startswith("Harmonization"):
+        model_name = model_name.split("_")
+        name = model_name[0]
+        variant = "_".join(model_name[1:])
+        model_params = dict(variant=variant)
     elif extract_cls_token:
         name = model_name
         model_params = dict(extract_cls_token=True)
