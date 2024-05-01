@@ -14,14 +14,15 @@ DATASETS = [
 ]
 
 
-def load_dataset(name: str, data_dir: str, category=None, stimulus_set=None, transform=None):
+def load_dataset(name: str, data_dir: str, category=None, stimulus_set=None, transform=None, backend=None):
+    assert backend is not None, "please provide backend to let the dataset know how to transform images"
     if name == "things":
         dataset = THINGSBehavior(
-            root=data_dir, aligned=False, download=True, transform=transform
+            root=data_dir, aligned=False, download=True, transform=transform, backend=backend,
         )
     elif name == "things-aligned":
         dataset = THINGSBehavior(
-            root=data_dir, aligned=True, download=True, transform=transform
+            root=data_dir, aligned=True, download=True, transform=transform, backend=backend,
         )
     elif name == "multi-arrangement":
         dataset = MultiArrangement(root=data_dir, transform=transform)

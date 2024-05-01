@@ -243,6 +243,7 @@ def evaluate(args) -> None:
             name=args.dataset,
             data_dir=data_cfg.root,
             transform=extractor.get_transformations(),
+            backend=extractor.get_backend()
         )
         batches = DataLoader(
             dataset=dataset,

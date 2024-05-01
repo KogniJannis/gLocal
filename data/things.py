@@ -11,6 +11,8 @@ import pandas as pd
 import torch
 from PIL import Image
 
+import tensorflow as tf
+
 Array = np.ndarray
 Tensor = torch.Tensor
 
@@ -74,7 +76,7 @@ class THINGSTriplet(torch.utils.data.Dataset):
 
 class THINGSBehavior(torch.utils.data.Dataset):
     def __init__(
-        self, root, aligned=True, transform=None, target_transform=None, download=True
+        self, root, aligned=True, transform=None, target_transform=None, download=True, backend=None,
     ):
         super(THINGSBehavior, self).__init__()
         self.root = root
@@ -82,6 +84,7 @@ class THINGSBehavior(torch.utils.data.Dataset):
         self.transform = transform
         self.target_transform = target_transform
         self.download = download
+        self.backend = backend
 
         if download:
             concept_file = urllib.request.urlopen(object_concepts_link)
@@ -108,11 +111,24 @@ class THINGSBehavior(torch.utils.data.Dataset):
             triplets = np.load(f).astype(int)
         return triplets
 
+    #function adopted from thingsvision -> ImageDataset to allow for tensorflow capability
+    def _transform_image(self, img: Any) -> Any:
+        if self.backend == "pt":
+            img = self.transform(img)
+        elif self.backend == "tf":
+            img = tf.keras.preprocessing.image.img_to_array(img)
+            img = self.transform(img)
+        else:
+            raise ValueError(
+                "\nImage transformations only implemented for PyTorch or TensorFlow/Keras models.\n"
+            )
+        return img
+    
     def __getitem__(self, idx: int) -> Tuple[Tensor, Tensor, Tensor, int]:
         img = os.path.join(self.root, "images", self.names[idx])
         img = Image.open(img)
         if self.transform is not None:
-            img = self.transform(img)
+            img = self._transform_image(img)
         return img
 
     def __len__(self) -> int:
