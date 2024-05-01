@@ -59,6 +59,7 @@ def parseargs():
             "torchvision",
             "vissl",
             "ssl",
+            "keras",
         ],
         help="Source of (pretrained) models",
     )
