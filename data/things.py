@@ -4,7 +4,7 @@
 
 import os
 import urllib
-from typing import Tuple
+from typing import Tuple, Any
 
 import numpy as np
 import pandas as pd
