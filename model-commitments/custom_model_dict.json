@@ -1,0 +1,226 @@
+{
+    "Harmonization_EfficientNetB0": {
+        "penultimate": 
+        {
+            "module_name": "top_dropout",
+            "module_dim": 1280
+        },
+        "logits":
+        {
+            "module_name": "probs"
+        }
+    },
+    "Harmonization_VGG16": {
+        "penultimate": 
+        {
+            "module_name": "fc2",
+            "module_dim": 4096
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "Harmonization_tiny_ConvNeXT": {
+        "penultimate": 
+        {
+            "module_name": "head_ln",
+            "module_dim": 1536
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "Harmonization_ResNet50": {
+        "penultimate": 
+        {
+            "module_name": "avg_pool",
+            "module_dim": 2048
+        },
+        "logits":
+        {
+            "module_name": "fc1000"
+        }
+    },
+    "MobileNetV2_0_35_96": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetVMobileNetV2_0_35_160": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_35_192": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_35_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_5_96": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_5_160": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_5_192": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_5_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_75_96": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_75_160": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_75_192": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_0_75_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_0_96": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_0_160": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_0_192": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_0_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_3_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "MobileNetV2_1_4_224": {
+        "penultimate": 
+        {
+            "module_name": "global_average_pooling2d"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    }
+}
