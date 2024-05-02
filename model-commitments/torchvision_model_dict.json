@@ -1,0 +1,443 @@
+{
+  "alexnet": {
+    "penultimate": 
+    {
+      "module_name": "classifier.4"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "efficientnet_b0": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b1": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b2": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b3": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b4": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b5": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b6": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "efficientnet_b7": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "resnet18": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnet34": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnet50": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnet101": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnet152": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "inception_v3": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "densenet121": {
+    "penultimate": 
+    {
+      "module_name": "features.norm5"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "densenet161": {
+    "penultimate": 
+    {
+      "module_name": "features.norm5"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "densenet169": {
+    "penultimate": 
+    {
+      "module_name": "features.norm5"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "densenet201": {
+    "penultimate": 
+    {
+      "module_name": "features.norm5"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "vgg11": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg13": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg16": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg19": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg11_bn": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg13_bn": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg16_bn": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "vgg19_bn": {
+    "penultimate": 
+    {
+      "module_name": "classifier.3"
+    },
+    "logits":
+    {
+      "module_name": "classifier.6"
+    }
+  },
+  "mobilenet_v2": {
+    "penultimate": 
+    {
+      "module_name": "features.18.2"
+    },
+    "logits":
+    {
+      "module_name": "classifier.1"
+    }
+  },
+  "mobilenet_v3_large": {
+    "penultimate": 
+    {
+      "module_name": "classifier.0"
+    },
+    "logits":
+    {
+      "module_name": "classifier.3"
+    }
+  },
+  "mobilenet_v3_small": {
+    "penultimate": 
+    {
+      "module_name": "classifier.0"
+    },
+    "logits":
+    {
+      "module_name": "classifier.3"
+    }
+  },
+  "shufflenet_v2_x0_5": {
+    "penultimate": 
+    {
+      "module_name": "conv5"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "shufflenet_v2_x1_0": {
+    "penultimate": 
+    {
+      "module_name": "conv5"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "shufflenet_v2_x1_5": {
+    "penultimate": 
+    {
+      "module_name": "conv5"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "shufflenet_v2_x2_0": {
+    "penultimate": 
+    {
+      "module_name": "conv5"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "squeezenet1_0": {
+    "penultimate": 
+    {
+      "module_name": "features.12"
+    },
+    "logits":
+    {
+      "module_name": "classifier.3"
+    }
+  },
+  "squeezenet1_1": {
+    "penultimate": 
+    {
+      "module_name": "features.12"
+    },
+    "logits":
+    {
+      "module_name": "classifier.3"
+    }
+  },
+  "resnext50_32x4d": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnext101_32x8d": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "resnext101_64x4d": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  },
+  "convnext_base": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.2"
+    }
+  },
+  "convnext_large": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.2"
+    }
+  },
+  "convnext_small": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.2"
+    }
+  },
+  "convnext_tiny": {
+    "penultimate": 
+    {
+      "module_name": "avgpool"
+    },
+    "logits":
+    {
+      "module_name": "classifier.2"
+    }
+  },
+  "googlenet": {
+    "penultimate": 
+    {
+      "module_name": "avgpool",
+      "module_dim": 1024
+    },
+    "logits":
+    {
+      "module_name": "fc"
+    }
+  }
+}

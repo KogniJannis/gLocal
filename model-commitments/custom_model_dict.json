@@ -222,5 +222,385 @@
         {
             "module_name": "predictions"
         }
+    }, 
+    "cornet_s": {
+        "penultimate": 
+        {
+        "module_name": "decoder.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "decoder.linear"
+        }
+    },
+    "ResNet50_l2_eps0": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_01": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_03": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_05": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_1": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_25": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps0_5": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps1": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps3": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNet50_l2_eps5": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "AlexNet_SIN": {
+        "penultimate": 
+        {
+        "module_name": "classifier.4"
+        },
+        "logits":
+        {
+        "module_name": "classifier.6"
+        }
+    },
+    "ResNet50_SIN": {
+        "penultimate": 
+        {
+        "module_name": "module.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.fc"
+        }
+    },
+    "ResNet50_SIN_IN": {
+        "penultimate": 
+        {
+        "module_name": "module.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.fc"
+        }
+    },
+    "ResNet50_SIN_IN_IN": {
+        "penultimate": 
+        {
+        "module_name": "module.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.fc"
+        }
+    },
+    "VGG16_SIN": {
+        "penultimate": 
+        {
+        "module_name": "classifier.3"
+        },
+        "logits":
+        {
+        "module_name": "classifier.6"
+        }
+    },
+    "ResNeXt101_32x8d_wsl": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNeXt101_32x16d_wsl": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNeXt101_32x32d_wsl": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "ResNeXt101_32x48d_wsl": {
+        "penultimate": 
+        {
+        "module_name": "avgpool"
+        },
+        "logits":
+        {
+        "module_name": "fc"
+        }
+    },
+    "BitS_ResNet50x1": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitS_ResNet50x3": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitS_ResNet101x1": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitS_ResNet101x3": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitS_ResNet152x2": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitS_ResNet152x4": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet50x1": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet50x3": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet101x1": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet101x3": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet152x2": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet152x4": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet50x1_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet50x3_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet101x1_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet101x3_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet152x2_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
+    },
+    "BitM_ResNet152x4_ILSVRC2012": {
+        "penultimate": 
+        {
+        "module_name": "head.avg"
+        },
+        "logits":
+        {
+        "module_name": "head.conv"
+        }
     }
 }

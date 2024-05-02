@@ -1,0 +1,122 @@
+{
+  "tf_efficientnet_b0_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b1_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b2_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b3_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b4_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b5_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b6_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b7_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "tf_efficientnet_b8_ap": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "classifier"
+    }
+  },
+  "pnasnet5large": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "last_linear"
+    }
+  },
+  "nasnetalarge": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "last_linear"
+    }
+  },
+  "inception_v4": {
+    "penultimate": 
+    {
+      "module_name": "global_pool"
+    },
+    "logits":
+    {
+      "module_name": "last_linear"
+    }
+  }
+}
