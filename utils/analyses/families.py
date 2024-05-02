@@ -47,6 +47,7 @@ class Families:
             "shufflenet_children": "ShuffleNet",
             "cornet_children": "CorNet",
             "bit_children": "BiT",
+            "googlenet_children": "GoogleNet"
         }
         return mapping
 
@@ -268,6 +269,10 @@ class Families:
         return "bit"
 
     @property
+    def googlenet(self):
+        return "googlenet"
+
+    @property
     def convnext_children(self):
         return self.search("convnext")
 
@@ -286,3 +291,7 @@ class Families:
     @property
     def bit_children(self):
         return self.search("bit")
+    
+    @property
+    def googlenet_children(self):
+        return self.search("googlenet")
