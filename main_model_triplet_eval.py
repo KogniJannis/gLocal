@@ -206,6 +206,11 @@ def load_extractor(
     elif extract_cls_token:
         name = model_name
         model_params = dict(extract_cls_token=True)
+    elif '_weights_' in model_name: 
+        #add this syntax to your model name you want to access specific weights, e.g. when source=torchvision
+        model_name = model_name.split("_")
+        name = model_name[0]
+        model_params = dict(weights=model_name[2:])
     else:
         name = model_name
         model_params = None
