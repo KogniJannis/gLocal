@@ -47,7 +47,9 @@ class Families:
             "shufflenet_children": "ShuffleNet",
             "cornet_children": "CorNet",
             "bit_children": "BiT",
-            "googlenet_children": "GoogleNet"
+            "googlenet_children": "GoogleNet",
+            "harmonization_children": "Harmonization",
+            "vonenet_children": "VoneNet",
         }
         return mapping
 
@@ -273,6 +275,14 @@ class Families:
         return "googlenet"
 
     @property
+    def harmonization(self):
+        return "harmonization"
+    
+    @property
+    def vonenet(self):
+        return "vonenet"
+
+    @property
     def convnext_children(self):
         return self.search("convnext")
 
@@ -295,3 +305,11 @@ class Families:
     @property
     def googlenet_children(self):
         return self.search("googlenet")
+    
+    @property
+    def harmonization_children(self):
+        return self.search("harmonization")
+    
+    @property
+    def vonenet_children(self):
+        return self.search("vonenet")

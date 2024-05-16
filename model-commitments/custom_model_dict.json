@@ -43,6 +43,36 @@
             "module_name": "fc1000"
         }
     },
+    "Harmonization_LeViT_small": {
+        "penultimate": 
+        {
+            "module_name": "flatten"
+        },
+        "logits":
+        {
+            "module_name": "head"
+        }
+    },
+    "Harmonization_tiny_MaxViT": {
+        "penultimate": 
+        {
+            "module_name": "features_tanh"
+        },
+        "logits":
+        {
+            "module_name": "predictions"
+        }
+    },
+    "Harmonization_ViT_B16": {
+        "penultimate": 
+        {
+            "module_name": "ExtractToken"
+        },
+        "logits":
+        {
+            "module_name": "head"
+        }
+    },
     "MobileNetV2_0_35_96": {
         "penultimate": 
         {
@@ -601,6 +631,47 @@
         "logits":
         {
         "module_name": "head.conv"
+        }
+    },
+    "VOneNet_AlexNet":{
+        "penultimate": 
+        {
+        "module_name": "module.model.classifier.4"
+        },
+        "logits":
+        {
+        "module_name": "module.model.classifier.6"
+        }
+    },
+    "VOneNet_ResNet50":{
+        "penultimate": 
+        {
+        "module_name": "module.model.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.model.fc"
+        }
+    },
+    "VOneNet_ResNet50_at":
+    {
+        "penultimate": 
+        {
+        "module_name": "module.model.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.model.fc"
+        }
+    },
+    "VOneNet_CORnetS":{
+        "penultimate": 
+        {
+        "module_name": "module.model.decoder.avgpool"
+        },
+        "logits":
+        {
+        "module_name": "module.model.decoder.linear"
         }
     }
 }
